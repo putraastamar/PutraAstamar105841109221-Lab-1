@@ -1,46 +1,68 @@
-import { StyleSheet, Text, View } from "react-native"
-import React from "react"
-const App = () => {
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import React from "react";
+
+const ButtonCustom = ({ text, color }) => {
   return (
-<View style={{ flex: 1}}>
-<View style={{
+    <TouchableOpacity style={{
+      backgroundColor: color,
+      width: 150,
+      height: 80,
+     justifyContent: "center",
+      alignItems: "center",
+      borderRadius: 40,
+      marginRight: 30,
+      marginBottom: 30,
+      shadowColor: "#000",
+      shadowOffset: {
+       width: 0,
+      height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
+    }}>
+      <Text style={{
+        fontsize: 20,
+        fontSize: "#fff",
+        textAlign: "center",
+        fontWeight: "bold",
+      }}>
+       {text}
+      </Text>
+    </TouchableOpacity>
+  )
+}
+
+const App= () => {
+  return (
+    <View style={{ 
       flex: 1,
-      alignItems: "flex-end", //baris
-      justifyContent: "start", //kolom
-      flexDirection : 'row'
-    }}>
-    <View style={{
-      backgroundColor: "blue", width: 180, height: 80,
-      justifyContent: "center",
-      borderRadius: 20,
-      marginRight : 20,
-      marginBottom : 20,
+     justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#fff",
     }}>
       <Text style={{
-        fontSize: 30, color: "white",
-        textAlign: "center",
-        fontWeight: "bold"
+        fontSize: 40,
+        fontWeight: "bold",
+       marginBottom: 30,
+       color: "red",
       }}>
-        Login
+        SELAMAT DATANG
       </Text>
-</View>
-<View style={{
-      backgroundColor: "yellow", width: 180, height: 80,
+      <Image
+        source={require('./assets/Awan.png')} 
+        style={{ width: 150, height: 100, marginBottom: 20, borderRadius: 40 }} />
+     <View style={{
+
+      flexDirection: "row", // Mengubah "-" menjadi "row"
       justifyContent: "center",
-      borderRadius: 20,
-      marginLeft: 20,
-      marginBottom : 20,
-  
-    }}>
-      <Text style={{
-        fontSize: 30, color: "white",
-        textAlign: "center",
-        fontWeight: "bold"
-      }}>
-        Register
-      </Text>
-</View>
+      marginBottom: 50,
+}}>
+        <ButtonCustom color="ff5e78"text="MASUK"/>  
+        <ButtonCustom color="#6699ff" text="MENDAFTAR"/>
+      </View>
     </View>
-</View>
-  )}
-  export default App
+  )
+}
+
+export default App;
