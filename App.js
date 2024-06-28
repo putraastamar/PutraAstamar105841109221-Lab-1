@@ -1,68 +1,31 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import React from "react";
+import React from 'react';
+import { useFonts } from 'expo-font';
+import { Text, View } from 'react-native';
 
-const ButtonCustom = ({ text, color }) => {
-  return (
-    <TouchableOpacity style={{
-      backgroundColor: color,
-      width: 150,
-      height: 80,
-     justifyContent: "center",
-      alignItems: "center",
-      borderRadius: 40,
-      marginRight: 30,
-      marginBottom: 30,
-      shadowColor: "#000",
-      shadowOffset: {
-       width: 0,
-      height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5,
-    }}>
-      <Text style={{
-        fontsize: 20,
-        fontSize: "#fff",
-        textAlign: "center",
-        fontWeight: "bold",
-      }}>
-       {text}
-      </Text>
-    </TouchableOpacity>
-  )
-}
+export default function App() {
+  const [dapatFont] = useFonts({
+    'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
+    'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
+    'MetroLight': require('./assets/fonts/Metropolis-Light.otf'),
+    'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf'),
+    'MetroSemiBold': require('./assets/fonts/Metropolis-SemiBold.otf'),
+  });
+  
+  if (!dapatFont) {
+    return <Text>Font tidak dapat ditemukan...</Text>;
+  }
 
-const App= () => {
   return (
-    <View style={{ 
+    <View style={{
       flex: 1,
-     justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "#fff",
-    }}>
-      <Text style={{
-        fontSize: 40,
-        fontWeight: "bold",
-       marginBottom: 30,
-       color: "red",
-      }}>
-        SELAMAT DATANG
-      </Text>
-      <Image
-        source={require('./assets/Awan.png')} 
-        style={{ width: 150, height: 100, marginBottom: 20, borderRadius: 40 }} />
-     <View style={{
-
-      flexDirection: "row", // Mengubah "-" menjadi "row"
       justifyContent: "center",
-      marginBottom: 50,
-}}>
-        <ButtonCustom color="ff5e78"text="MASUK"/>  
-        <ButtonCustom color="#6699ff" text="MENDAFTAR"/>
-      </View>
+      alignItems: "center",
+    }}>
+      <Text style={{ fontFamily: 'MetroBlack' }}>Font Metropolis Black</Text>
+      <Text style={{ fontFamily: 'MetroBold' }}>Font Metropolis Bold</Text>
+      <Text style={{ fontFamily: 'MetroLight' }}>Font Metropolis Light</Text>
+      <Text style={{ fontFamily: 'MetroMedium' }}>Font Metropolis Medium</Text>
+      <Text style={{ fontFamily: 'MetroSemiBold' }}>Font Metropolis SemiBold</Text>
     </View>
-  )
+  );
 }
-
-export default App;
